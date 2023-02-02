@@ -28,6 +28,7 @@ def jatekosvesztett_teszt():
         print("teszt megbukott")
 
 def teszt_tesztesetek():
+    print("A játékos vesztett teszt: ", end="")
     jatekosvesztett_teszt()
 
 teszt_tesztesetek()
