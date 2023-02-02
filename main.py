@@ -46,7 +46,7 @@ def jatekosvesztettnagyobbertekkel_teszt():
 def jatekosvesztettkisebbertekkel_teszt():
     jatekos_lapok = [10,5]
     gep_lapok = [10,10]
-    vart_eredmeny = "A játékos vesztett"
+    vart_eredmeny = "A gép nyert"
     kapott_eredmeny = eredmeny(jatekos_lapok,gep_lapok)
     print("A játékos vesztett teszt (kisebb értékkel): ",end="")
     if kapott_eredmeny == vart_eredmeny:
@@ -58,7 +58,7 @@ def jatekosvesztettkisebbertekkel_teszt():
 def jatekosvesztettkevesebblappal_teszt():
     jatekos_lapok = [10,5,5]
     gep_lapok = [10,10]
-    vart_eredmeny = "A játékos vesztett"
+    vart_eredmeny = "A gép nyert"
     kapott_eredmeny = eredmeny(jatekos_lapok,gep_lapok)
     print("A játékos vesztett teszt (kevesebb lappal): ",end="")
     if kapott_eredmeny == vart_eredmeny:
@@ -80,7 +80,7 @@ def gepvesztettnagyobbertekkel_teszt():
 def gepvesztettkisebbertekkel_teszt():
     jatekos_lapok = [10,10]
     gep_lapok = [10,5]
-    vart_eredmeny = "A gép vesztett"
+    vart_eredmeny = "A játékos nyert"
     kapott_eredmeny = eredmeny(jatekos_lapok,gep_lapok)
     print("A gép vesztett teszt (kisebb értékkel): ",end="")
     if kapott_eredmeny == vart_eredmeny:
@@ -91,7 +91,7 @@ def gepvesztettkisebbertekkel_teszt():
 def gepvesztettkevesebblappal_teszt():
     jatekos_lapok = [10,10]
     gep_lapok = [10,5,5]
-    vart_eredmeny = "A gép vesztett"
+    vart_eredmeny = "A játékos nyert"
     kapott_eredmeny = eredmeny(jatekos_lapok,gep_lapok)
     print("A gép vesztett teszt (kevesebb lappal): ",end="")
     if kapott_eredmeny == vart_eredmeny:
@@ -109,6 +109,17 @@ def dontetlen():
     else:
         print("teszt megbukott")
 
+def dontetlennagyobbertekkel():
+    jatekos_lapok = [12,10]
+    gep_lapok = [12,10]
+    vart_eredmeny = "Döntetlen, a Ház nyert"
+    kapott_eredmeny = eredmeny(jatekos_lapok,gep_lapok)
+    print("A Döntetlen (nagyobb értékkel mint 21): ",end="")
+    if kapott_eredmeny == vart_eredmeny:
+        print("teszt sikeres")
+    else:
+        print("teszt megbukott")
+
 def teszt_tesztesetek():
     jatekosvesztettnagyobbertekkel_teszt()
     jatekosvesztettkisebbertekkel_teszt()
@@ -117,6 +128,7 @@ def teszt_tesztesetek():
     gepvesztettkisebbertekkel_teszt()
     gepvesztettkevesebblappal_teszt()
     dontetlen()
+    dontetlennagyobbertekkel()
 
 teszt_tesztesetek()
 
