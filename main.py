@@ -6,23 +6,22 @@ def pontszamitas(lapok):
 
     return ertek
 
-def eredmeny(gep_lapok,jatekos_lapok):
+def eredmeny(jatekos_lapok,gep_lapok):
     gepertek = pontszamitas(gep_lapok)
     jatekosertek = pontszamitas(jatekos_lapok)
-    eredmeny = ""
     if gepertek > 21:
-        eredmeny = "A gép vesztett"
+        eredmenykiir = "A gép vesztett"
     elif jatekosertek > 21:
-        eredmeny = "A játékos vesztett"
+        eredmenykiir = "A játékos vesztett"
     else:
-        eredmeny = "ház vesztett"
-    return eredmeny
+        eredmenykiir = "ház vesztett"
+    return eredmenykiir
 
 def jatekosvesztett_teszt():
-    jatekos = [10,10,5]
-    gep = [5,10]
+    jatekos_lapok = [10,10,5,]
+    gep_lapok = [5,10]
     vart_eredmeny = "A játékos vesztett"
-    kapott_eredmeny = eredmeny(jatekos,gep)
+    kapott_eredmeny = eredmeny(jatekos_lapok,gep_lapok)
     if kapott_eredmeny == vart_eredmeny:
         print("teszt sikeres")
     else:
@@ -30,6 +29,7 @@ def jatekosvesztett_teszt():
 
 def teszt_tesztesetek():
     jatekosvesztett_teszt()
+
 teszt_tesztesetek()
 
 
