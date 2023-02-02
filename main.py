@@ -9,21 +9,27 @@ def pontszamitas(lapok):
 def eredmeny(jatekos_lapok,gep_lapok):
     gepertek = pontszamitas(gep_lapok)
     jatekosertek = pontszamitas(jatekos_lapok)
+    if gepertek <= 21 and jatekosertek <= 21:
+        if jatekosertek > gepertek:
+            eredmenykiir = "A játékos nyert"
+        elif gepertek > jatekosertek:
+            eredmenykiir = "A gép nyert"
+        elif jatekosertek == gepertek:
+            if len(jatekos_lapok) < len(gep_lapok):
+                eredmenykiir = "A játékos nyert"
+            elif len(jatekos_lapok) > len(gep_lapok):
+                eredmenykiir = "A gép nyert"
+            else:
+                eredmenykiir = "Döntetlen"
+    if jatekosertek > 21:
+        eredmenykiir = "A játékos vesztett"
     if gepertek > 21:
         eredmenykiir = "A gép vesztett"
-    elif jatekosertek > 21:
-        eredmenykiir = "A játékos vesztett"
-    elif gepertek > jatekosertek and gepertek <21:
-        eredmenykiir = "A játékos vesztett"
-    elif gepertek == jatekosertek and gepertek <21 and len(gep_lapok) < len(jatekos_lapok):
-        eredmenykiir = "A játékos vesztett"
-    elif gepertek < jatekosertek and jatekosertek <21:
-        eredmenykiir = "A gép vesztett"
-    elif gepertek == jatekosertek and jatekosertek <21 and len(gep_lapok) > len(jatekos_lapok):
-        eredmenykiir = "A gép vesztett"
-    else:
-        eredmenykiir = "ház vesztett"
+    if jatekosertek > 21 and gepertek > 21:
+        eredmenykiir = "Döntetlen, a Ház nyert"
+
     return eredmenykiir
+
 
 def jatekosvesztettnagyobbertekkel_teszt():
     jatekos_lapok = [10,10,5,]
@@ -92,6 +98,16 @@ def gepvesztettkevesebblappal_teszt():
         print("teszt sikeres")
     else:
         print("teszt megbukott")
+def dontetlen():
+    jatekos_lapok = [10,10]
+    gep_lapok = [10,10]
+    vart_eredmeny = "Döntetlen"
+    kapott_eredmeny = eredmeny(jatekos_lapok,gep_lapok)
+    print("A Döntetlen (kevesebb lappal): ",end="")
+    if kapott_eredmeny == vart_eredmeny:
+        print("teszt sikeres")
+    else:
+        print("teszt megbukott")
 
 def teszt_tesztesetek():
     jatekosvesztettnagyobbertekkel_teszt()
@@ -100,6 +116,7 @@ def teszt_tesztesetek():
     gepvesztettnagyobbertekkel_teszt()
     gepvesztettkisebbertekkel_teszt()
     gepvesztettkevesebblappal_teszt()
+    dontetlen()
 
 teszt_tesztesetek()
 
